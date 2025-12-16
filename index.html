@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparative Politics - Tier 1 Answers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .nav {
+            background: #f8f9fa;
+            padding: 20px;
+            border-bottom: 2px solid #e9ecef;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .nav-btn {
+            padding: 12px 24px;
+            background: white;
+            border: 2px solid #667eea;
+            color: #667eea;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .nav-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .question {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .question.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .question-title {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .marks {
+            display: inline-block;
+            background: #ffd700;
+            color: #333;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .answer-section {
+            margin-top: 30px;
+            line-height: 1.8;
+        }
+
+        .answer-section h3 {
+            color: #764ba2;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .answer-section h4 {
+            color: #667eea;
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .answer-section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .answer-section ul {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        .answer-section li {
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ffd70020 0%, #ffd70080 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            border-top: 2px solid #e9ecef;
+        }
+
+        .print-btn {
+            padding: 12px 30px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .print-btn:hover {
+            background: #764ba2;
+            transform: scale(1.05);
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .nav, .footer, .print-btn {
+                display: none;
+            }
+            .question {
+                display: block !important;
+                page-break-after: always;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .content {
+                padding: 20px;
+            }
+            .question-title {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🥇 TIER 1 ANSWERS</h1>
+            <p>Comparative Politics - Comprehensive Study Guide</p>
+        </div>
+
+        <div class="nav" id="navigation">
+            <button class="nav-btn active" onclick="showQuestion(1)">Question 1</button>
+            <button class="nav-btn" onclick="showQuestion(2)">Question 2</button>
+            <button class="nav-btn" onclick="showQuestion(3)">Question 3</button>
+            <button class="nav-btn" onclick="showQuestion(4)">Question 4</button>
+            <button class="nav-btn" onclick="showQuestion(5)">Question 5</button>
+            <button class="nav-btn" onclick="showQuestion(6)">Question 6</button>
+            <button class="nav-btn" onclick="showQuestion(7)">Question 7</button>
+            <button class="nav-btn" onclick="showQuestion(8)">Question 8</button>
+        </div>
+
+        <div class="content">
+            <div id="q1" class="question active">
+                <h2 class="question-title">1. Distinguish between Comparative Government and Comparative Politics <span class="marks">10 marks</span></h2>
+                <div class="answer-section">
+                    <p>Comparative Government and Comparative Politics are related but distinct fields of study within political science, differing in their scope, focus, and methodology.</p>
+                    
+                    <h3>Comparative Government</h3>
+                    <p>Comparative Government is the traditional, narrower approach that emerged in the 19th and early 20th centuries. It focuses primarily on the formal structures, institutions, and constitutional frameworks of government. Its main characteristics include:</p>
+                    
+                    <ul>
+                        <li><span class="highlight">Institutional Focus:</span> Examines formal governmental institutions such as legislatures, executives, judiciaries, and constitutional provisions</li>
+                        <li><span class="highlight">Descriptive Approach:</span> Primarily describes and compares the legal-constitutional arrangements of different states</li>
+                        <li><span class="highlight">Limited Scope:</span> Concentrates mainly on Western democratic systems and their formal structures</li>
+                        <li><span class="highlight">Static Analysis:</span> Tends to view institutions as fixed entities rather than dynamic processes</li>
+                    </ul>
+
+                    <h3>Comparative Politics</h3>
+                    <p>Comparative Politics represents a broader, more comprehensive approach that developed after World War II, particularly from the 1950s onwards. Its characteristics include:</p>
+                    
+                    <ul>
+                        <li><span class="highlight">Comprehensive Scope:</span> Studies not just governmental institutions but also political processes, behavior, culture, political parties, interest groups, public opinion, and informal structures</li>
+                        <li><span class="highlight">Analytical Approach:</span> Employs scientific methods, theories, and frameworks to explain political phenomena</li>
+                        <li><span class="highlight">Global Coverage:</span> Includes study of developing nations, non-Western systems, and various political regimes beyond democracies</li>
+                        <li><span class="highlight">Dynamic Analysis:</span> Examines political change, development, modernization, and transformation processes</li>
+                        <li><span class="highlight">Interdisciplinary Nature:</span> Draws from sociology, economics, psychology, and anthropology</li>
+                    </ul>
+
+                    <p><strong>In essence,</strong> Comparative Government asks "What are the structures?" while Comparative Politics asks "How and why do political systems function the way they do?" The evolution from Comparative Government to Comparative Politics reflects the discipline's maturation toward a more scientific, inclusive, and explanatory field of study.</p>
+                </div>
+            </div>
+
+            <div id="q2" class="question">
+                <h2 class="question-title">2. Discuss the Nature and Scope of Comparative Politics <span class="marks">10 marks</span></h2>
+                <div class="answer-section">
+                    <h3>Nature of Comparative Politics</h3>
+                    <p>Comparative Politics is a systematic study of political systems, processes, institutions, and behavior across different countries and contexts using comparative methods. Its nature can be understood through several key characteristics:</p>
+                    
+                    <ul>
+                        <li><span class="highlight">Scientific Approach:</span> It employs rigorous methodologies, hypothesis testing, and theory-building to understand political phenomena scientifically rather than through mere description</li>
+                        <li><span class="highlight">Empirical Foundation:</span> Based on observable facts and data from various political systems rather than abstract philosophical speculation</li>
+                        <li><span class="highlight">Comparative Method:</span> Uses comparison as its central analytical tool to identify similarities, differences, patterns, and causalities across political systems</li>
+                        <li><span class="highlight">Interdisciplinary Character:</span> Integrates insights from sociology, economics, history, anthropology, and psychology to provide comprehensive analysis</li>
+                    </ul>
+
+                    <h3>Scope of Comparative Politics</h3>
+                    <p>The scope of Comparative Politics is extensive and includes:</p>
+                    
+                    <ul>
+                        <li><span class="highlight">Political Institutions:</span> Study of constitutional arrangements, governmental structures, executives, legislatures, judiciaries, and their functioning</li>
+                        <li><span class="highlight">Political Processes:</span> Analysis of elections, political participation, decision-making, policy formulation, and implementation</li>
+                        <li><span class="highlight">Political Behavior:</span> Examination of voting behavior, political culture, public opinion, political socialization, and citizen engagement</li>
+                        <li><span class="highlight">Political Groups:</span> Study of political parties, pressure groups, interest groups, social movements, and civil society organizations</li>
+                        <li><span class="highlight">Political Systems:</span> Comparison of democracies, authoritarian regimes, totalitarian systems, and hybrid regimes</li>
+                        <li><span class="highlight">Political Development:</span> Analysis of modernization, democratization, political change, state-building, and nation-building processes</li>
+                        <li><span class="highlight">Political Economy:</span> Study of the relationship between political and economic systems, development strategies, and distribution of resources</li>
+                        <li><span class="highlight">Contemporary Issues:</span> Examination of globalization, migration, terrorism, environmental politics, and human rights</li>
+                    </ul>
+
+                    <p>The scope continues to expand with new challenges like digital governance, populism, and transnational political movements, making Comparative Politics a dynamic and evolving discipline.</p>
+                </div>
+            </div>
+
+            <div id="q3" class="question">
+                <h2 class="question-title">3. Discuss the Main Features of the British Constitution <span class="marks">10 marks</span></h2>
+                <div class="answer-section">
+                    <p>The British Constitution is unique among major democracies due to its distinctive characteristics:</p>
+                    
+                    <h4>1. Unwritten/Uncodified Nature</h4>
+                    <p>Unlike most constitutions, the British Constitution is not contained in a single written document. It consists of various sources including statutes, conventions, judicial decisions, and authoritative works. This makes it flexible but sometimes ambiguous.</p>
+                    
+                    <h4>2. Evolutionary Development</h4>
+                    <p>The British Constitution has evolved gradually over centuries through historical developments like the Magna Carta (1215), Bill of Rights (1689), and various Acts of Parliament. It reflects Britain's continuous political tradition without revolutionary breaks.</p>
+                    
+                    <h4>3. Supremacy of Parliament</h4>
+                    <p>Parliamentary sovereignty is the cornerstone principle. Parliament has supreme legislative authority and can make or unmake any law. No other body can override or set aside Parliamentary legislation, though EU membership (1973-2020) and devolution have created complexities.</p>
+                    
+                    <h4>4. Rule of Law</h4>
+                    <p>Equality before law, absence of arbitrary power, and constitutional principles derived from judicial decisions ensure that government powers are legally constrained and individual rights are protected.</p>
+                    
+                    <h4>5. Constitutional Monarchy</h4>
+                    <p>The Monarch is the ceremonial head of state with theoretical powers, but actual governance is conducted by elected representatives. The Monarch acts on the advice of ministers, exemplifying the principle "The King/Queen reigns but does not rule."</p>
+                    
+                    <h4>6. Unitary System with Devolution</h4>
+                    <p>Traditionally a unitary state, Britain has undergone devolution, granting legislative powers to Scotland, Wales, and Northern Ireland while retaining sovereignty at Westminster.</p>
+                    
+                    <h4>7. Fusion of Powers</h4>
+                    <p>Unlike presidential systems with separation of powers, Britain has a fusion where the executive (Cabinet) emerges from and is responsible to the legislature (Parliament). The Prime Minister is both head of government and a member of Parliament.</p>
+                    
+                    <h4>8. Cabinet Government</h4>
+                    <p>Collective responsibility ensures Cabinet unity in policy decisions. Ministers must publicly support Cabinet decisions or resign.</p>
+                    
+                    <h4>9. Conventions and Customs</h4>
+                    <p>Unwritten conventions like ministerial responsibility, royal assent to bills, and the formation of government by the party with Parliamentary majority are crucial operational rules.</p>
+                    
+                    <h4>10. Flexibility</h4>
+                    <p>Being uncodified allows easy adaptation to changing circumstances without formal amendment procedures, though this can also lead to uncertainty about constitutional boundaries.</p>
+                    
+                    <p><strong>These features make the British Constitution a unique model of pragmatic, evolutionary constitutionalism.</strong></p>
+                </div>
+            </div>
+
+            <div id="q4" class="question">
+                <h2 class="question-title">4. Discuss the Main Features of Socialism and Capitalism <span class="marks">10 marks</span></h2>
+                <div class="answer-section">
+                    <h3>SOCIALISM</h3>
+                    <p>Socialism emerged as a response to industrial capitalism's inequalities in the 19th century, advocating for collective ownership and egalitarian distribution.</p>
+                    
+                    <h4>Main Features:</h4>
+                    <ul>
+                        <li><span class="highlight">Public/Collective Ownership:</span> Means of production, distribution, and exchange are owned by the state or community, not private individuals</li>
+                        <li><span class="highlight">Economic Planning:</span> Central planning replaces market mechanisms to allocate resources and determine production priorities</li>
+                        <li><span class="highlight">Elimination of Class Distinctions:</span> Aims to abolish class-based society and achieve social and economic equality</li>
+                        <li><span class="highlight">Equitable Distribution:</span> Wealth and resources distributed based on need and contribution, not capital ownership ("From each according to ability, to each according to need")</li>
+                        <li><span class="highlight">Social Welfare:</span> Emphasis on universal healthcare, education, housing, and employment as state responsibilities</li>
+                        <li><span class="highlight">Rejection of Exploitation:</span> Opposes capitalist profit from labor and seeks to eliminate surplus value extraction</li>
+                    </ul>
+
+                    <h3>CAPITALISM</h3>
+                    <p>Capitalism is an economic system based on private ownership, market competition, and profit motive, dominant in Western economies.</p>
+                    
+                    <h4>Main Features:</h4>
+                    <ul>
+                        <li><span class="highlight">Private Ownership:</span> Means of production owned by private individuals and corporations who control resources and derive profits</li>
+                        <li><span class="highlight">Market Economy:</span> Free market mechanisms of supply and demand determine prices, production, and distribution</li>
+                        <li><span class="highlight">Profit Motive:</span> Economic activity driven by pursuit of maximum profit and individual self-interest</li>
+                        <li><span class="highlight">Competition:</span> Open competition among enterprises promotes efficiency, innovation, and consumer choice</li>
+                        <li><span class="highlight">Limited Government Intervention:</span> Minimal state role in economy; government provides legal framework but doesn't control production</li>
+                        <li><span class="highlight">Capital Accumulation:</span> Emphasis on investment, savings, and wealth creation through entrepreneurship</li>
+                        <li><span class="highlight">Wage Labor:</span> Workers sell labor for wages while owners control means of production and profit</li>
+                        <li><span class="highlight">Class Division:</span> Recognizes and perpetuates class distinctions between owners (bourgeoisie) and workers (proletariat)</li>
+                    </ul>
+
+                    <h3>Comparison</h3>
+                    <p>While socialism prioritizes equality and collective welfare through state control, capitalism emphasizes individual freedom, private enterprise, and market efficiency. Modern economies often blend elements of both in mixed economic systems, with variations like social democracy, market socialism, and welfare capitalism representing different balancing points between these ideologies.</p>
+                </div>
+            </div>
+
+            <div id="q5" class="question">
+                <h2 class="question-title">5. Discuss the Key Features of the Constitution of the People's Republic of China (1982) <span class="marks">10 marks</span></h2>
+                <div class="answer-section">
+                    <p>The Constitution of the People's Republic of China, adopted in 1982 and subsequently amended, represents the fundamental law of the Chinese socialist state.</p>
+                    
+                    <h4>1. Socialist State Structure</h4>
+                    <p>Declares China as a "socialist state under the people's democratic dictatorship led by the working class and based on the worker-peasant alliance," establishing socialism with Chinese characteristics as the guiding principle.</p>
+                    
+                    <h4>2. Leadership of the Communist Party</h4>
+                    <p>The CPC's leading role is constitutionally enshrined (especially after 2018 amendment), making it the supreme political authority directing all state organs and society.</p>
+                    
+                    <h4>3. People's Congress System</h4>
+                    <p>The National People's Congress (NPC) is the highest organ of state power, theoretically embodying people's sovereignty. It exercises legislative power, elects state leadership, and supervises government work.</p>
+                    
+                    <h4>4. Democratic Centralism</h4>
+                    <p>The organizational principle combining democracy with centralized authority ensures unified leadership while allowing discussion and deliberation at lower levels.</p>
+                    
+                    <h4>5. Fundamental Rights and Duties</h4>
+                    <p>Guarantees citizens' rights including equality before law, freedom of speech, press, assembly, association, and religious belief, alongside emphasizing fundamental duties like upholding constitution, safeguarding unity, and defending the motherland.</p>
+                    
+                    <h4>6. Economic System</h4>
+                    <p>Establishes socialist market economy with public ownership as the mainstay while allowing diverse ownership forms. Permits private sector development within socialist framework.</p>
+                    
+                    <h4>7. Unitary Multinational State</h4>
+                    <p>Recognizes 56 ethnic groups with regional autonomy for minority nationalities, while maintaining territorial integrity and opposing separatism.</p>
+                    
+                    <h4>8. Marxism-Leninism and Socialism</h4>
+                    <p>Incorporates Marxism-Leninism, Mao Zedong Thought, Deng Xiaoping Theory, "Three Represents," Scientific Outlook on Development, and Xi Jinping Thought (added 2018) as ideological foundations.</p>
+                    
+                    <h4>9. State Structure</h4>
+                    <p>Establishes presidency, State Council (executive), NPC (legislative), Supreme People's Court (judicial), and Supreme People's Procuratorate (supervisory), with Central Military Commission controlling armed forces.</p>
+                    
+                    <h4>10. Amendment Procedure</h4>
+                    <p>Requires proposal by NPC Standing Committee or one-fifth of NPC deputies and adoption by two-thirds majority of all NPC deputies, making amendments relatively difficult but not impossible.</p>
+                    
+                    <h4>11. Four Cardinal Principles</h4>
+                    <p>Upholds the socialist path, people's democratic dictatorship, CPC leadership, and Marxism-Leninism-Mao Zedong Thought as unchangeable foundations.</p>
+                    
+                    <p><strong>The 1982 Constitution represents China's attempt to institutionalize governance after the Cultural Revolution while maintaining Communist Party supremacy and adapting to economic reforms.</strong></p>
+                </div>
+            </div>
+
+            <div id="q6" class="question">
+                <h2 class="question-title">6. Define and Discuss: Colonialism, Neo-Colonialism, Decolonization, and Imperialism <span class="marks">10 marks</span></h2>
+                <div class="answer-section">
+                    <h3>COLONIALISM</h3>
+                    <h4>Definition</h4>
+                    <p>Colonialism is the establishment and maintenance of political, economic, and cultural domination by a foreign power over a territory and its people, involving direct administrative control, settlement, and exploitation.</p>
+                    
+                    <h4>Discussion</h4>
+                    <ul>
+                        <li>Characterized by physical occupation, foreign rule, and systematic exploitation of resources and labor</li>
+                        <li>European powers colonized vast territories in Asia, Africa, and Americas from 16th-20th centuries</li>
+                        <li>Involved cultural imposition, racial hierarchies, and destruction of indigenous governance systems</li>
+                        <li>Justified through racist ideologies of "civilizing mission" and "white man's burden"</li>
+                        <li>Created artificial boundaries, disrupted traditional societies, and extracted wealth systematically</li>
+                    </ul>
+
+                    <h3>IMPERIALISM</h3>
+                    <h4>Definition</h4>
+                    <p>Imperialism is the broader policy and practice of extending a nation's power and influence through diplomacy, economic dominance, or military force, not necessarily requiring direct territorial control.</p>
+                    
+                    <h4>Discussion</h4>
+                    <ul>
+                        <li>Can exist without formal colonial administration through economic, political, and cultural dominance</li>
+                        <li>Driven by economic motives (markets, resources, investment opportunities) and strategic considerations</li>
+                        <li>Includes both formal colonialism and informal influence through trade, loans, and political pressure</li>
+                        <li>Modern forms include military bases, economic dependencies, and cultural hegemony</li>
+                        <li>Lenin described it as the "highest stage of capitalism" requiring external markets and investment outlets</li>
+                    </ul>
+
+                    <h3>NEO-COLONIALISM</h3>
+                    <h4>Definition</h4>
+                    <p>Neo-colonialism is the practice of using economic, political, and cultural pressures to control or influence former colonies or developing countries instead of direct military or political control.</p>
+                    
+                    <h4>Discussion</h4>
+                    <ul>
+                        <li>Emerged after formal decolonization when direct colonial rule became politically untenable</li>
+                        <li>Operates through international financial institutions (IMF, World Bank), multinational corporations, and conditional aid</li>
+                        <li>Mechanisms include debt dependency, structural adjustment programs, unfavorable trade terms, and currency manipulation</li>
+                        <li>Former colonial powers maintain economic exploitation and political influence without formal sovereignty</li>
+                        <li>Creates "flag independence" where countries are formally sovereign but economically dependent</li>
+                        <li>Critics argue it perpetuates underdevelopment and maintains global inequality structures</li>
+                    </ul>
+
+                    <h3>DECOLONIZATION</h3>
+                    <h4>Definition</h4>
+                    <p>Decolonization is the process by which colonies gained independence from colonial powers, involving transfer of sovereignty and establishment of self-governance.</p>
+                    
+                    <h4>Discussion</h4>
+                    <ul>
+                        <li>Major wave occurred post-World War II (1945-1975) when colonial empires collapsed</li>
+                        <li>Driven by nationalist movements, weakened colonial powers, Cold War dynamics, and changing international norms</li>
+                        <li>Varied processes: peaceful negotiations (India), armed struggles (Algeria, Vietnam), and mixed approaches</li>
+                        <li>Left legacies including artificial borders, weak institutions, ethnic conflicts, and economic dependencies</li>
+                        <li>Incomplete in many respects due to neo-colonial relationships replacing formal colonialism</li>
+                        <li>The UN played a role through anti-colonial resolutions and support for self-determination</li>
+                    </ul>
+
+                    <h3>Interconnections</h3>
+                    <p>These concepts form a continuum of domination: Imperialism as the ideology and policy, colonialism as its direct manifestation, decolonization as the formal end of colonial rule, and neo-colonialism as imperialism's contemporary form. Understanding these terms is crucial for analyzing global power structures and North-South relations.</p>
+                </div>
+            </div>
+
+            <div id="q7" class="question">
+                <h2 class="question-title">7. Define and Discuss: Globalization <span class="marks">10 marks</span></h2>
+                <div class="answer-section">
+                    <h3>Definition</h3>
+                    <p>Globalization is the process of increasing interconnectedness and interdependence among countries through cross-border flows of goods, services, capital, information, ideas, people, and culture, facilitated by technological advancement and policy liberalization.</p>
+                    
+                    <h3>Types/Dimensions of Globalization</h3>
+                    
+                    <h4>1. Economic Globalization</h4>
+                    <ul>
+                        <li>Integration of national economies through international trade, investment, and financial flows</li>
+                        <li>Rise of multinational corporations, global supply chains, and borderless capital markets</li>
+                        <li>Trade liberalization through WTO, regional agreements, and reduced tariffs</li>
+                        <li>Increased economic interdependence but also vulnerability to global crises</li>
+                    </ul>
+
+                    <h4>2. Political Globalization</h4>
+                    <ul>
+                        <li>Emergence of international governance institutions (UN, WTO, IMF, World Bank)</li>
+                        <li>Growth of international law, treaties, and norms</li>
+                        <li>Reduced state sovereignty as decisions are influenced by transnational actors</li>
+                        <li>Rise of global civil society and transnational social movements</li>
+                    </ul>
+
+                    <h4>3. Cultural Globalization</h4>
+                    <ul>
+                        <li>Spread of ideas, values, norms, and lifestyles across borders</li>
+                        <li>Dominance of Western (particularly American) cultural products through media and entertainment</li>
+                        <li>English as global lingua franca</li>
+                        <li>Debates about cultural homogenization versus hybridization</li>
+                    </ul>
+
+                    <h4>4. Technological Globalization</h4>
+                    <ul>
+                        <li>Revolution in communication (internet, mobile technology) and transportation</li>
+                        <li>Instantaneous information flow and real-time global connectivity</li>
+                        <li>Digital divide creating new inequalities between connected and disconnected populations</li>
+                    </ul>
+
+                    <h3>Effects of Globalization</h3>
+                    
+                    <h4>Positive Effects</h4>
+                    <ul>
+                        <li>Economic growth through trade expansion and foreign investment</li>
+                        <li>Access to wider variety of goods, services, and technologies</li>
+                        <li>Knowledge sharing and cultural exchange</li>
+                        <li>Poverty reduction in some developing countries (China, India)</li>
+                        <li>Global awareness of human rights, democracy, and environmental issues</li>
+                    </ul>
+
+                    <h4>Negative Effects</h4>
+                    <ul>
+                        <li>Increased inequality within and between nations</li>
+                        <li>Job displacement in developed countries due to outsourcing</li>
+                        <li>Cultural homogenization and loss of local identities</li>
+                        <li>Environmental degradation due to race-to-the-bottom in regulations</li>
+                        <li>Financial instability and contagion of economic crises</li>
+                        <li>Weakening of national sovereignty and democratic accountability</li>
+                        <li>Exploitation of labor in developing countries</li>
+                    </ul>
+
+                    <h3>Critical Perspectives</h3>
+                    <p>Critics argue globalization represents Western, particularly American, hegemony benefiting wealthy nations and corporations while marginalizing the Global South. They point to structural adjustment programs, debt crises, and unfavorable terms of trade as neo-colonial instruments.</p>
+                    
+                    <p>Supporters contend globalization creates opportunities for development, poverty reduction, and cultural enrichment, though they acknowledge need for better governance and fairer distribution of benefits.</p>
+                    
+                    <p><strong>Globalization remains contested, with movements ranging from anti-globalization protests to calls for alternative, more equitable forms of globalization prioritizing human development over profit maximization.</strong></p>
+                </div>
+            </div>
+
+            <div id="q8" class="question">
+                <h2 class="question-title">8. Define and Discuss: Eurocentrism <span class="marks">10 marks</span></h2>
+                <div class="answer-section">
+                    <h3>Definition</h3>
+                    <p>Eurocentrism is a worldview, intellectual paradigm, and ideological position that regards European (and Western) civilization, history, values, and perspectives as central, superior, and universal while marginalizing, devaluing, or ignoring non-European societies and knowledge systems.</p>
+                    
+                    <h3>Key Characteristics</h3>
+                    
+                    <h4>1. Historical Distortion</h4>
+                    <ul>
+                        <li>Presents European history as world history, ignoring or minimizing non-European civilizations' contributions</li>
+                        <li>Portrays Europe as the sole source of modernity, rationality, science, and progress</li>
+                        <li>Creates linear narratives from ancient Greece to modern West, excluding other trajectories</li>
+                        <li>Example: Crediting "discovery" of continents already inhabited by indigenous peoples</li>
+                    </ul>
+
+                    <h4>2. Cultural Superiority</h4>
+                    <ul>
+                        <li>Assumes European culture, values, and institutions are universally applicable and superior</li>
+                        <li>Judges non-European cultures by European standards</li>
+                        <li>Dismisses non-Western knowledge systems as primitive, traditional, or unscientific</li>
+                        <li>Promotes Western modernization as the only path to development</li>
+                    </ul>
+
+                    <h4>3. Epistemological Hegemony</h4>
+                    <ul>
+                        <li>European theories, concepts, and methodologies dominate academic disciplines</li>
+                        <li>Social sciences developed primarily to understand European societies applied universally</li>
+                        <li>Non-European intellectual traditions excluded from "legitimate" knowledge production</li>
+                        <li>Creates what Edward Said called "Orientalism" – stereotypical representations of the East</li>
+                    </ul>
+
+                    <h4>4. Political and Economic Dimensions</h4>
+                    <ul>
+                        <li>Justified colonialism and imperialism as "civilizing missions"</li>
+                        <li>Contemporary forms legitimize Western intervention in non-Western societies</li>
+                        <li>Underlies international institutions reflecting Western priorities and interests</li>
+                        <li>Perpetuates global inequality through claims of Western meritocracy</li>
+                    </ul>
+
+                    <h3>Manifestations in Comparative Politics</h3>
+                    <ul>
+                        <li><span class="highlight">Traditional Comparative Politics</span> focused exclusively on Western democratic institutions, treating them as normative models</li>
+                        <li><span class="highlight">Modernization Theory</span> assumed all societies must follow Western developmental path, treating non-Western societies as backward versions of the West</li>
+                        <li><span class="highlight">Democratic transitions literature</span> often measures success by proximity to Western liberal democratic models</li>
+                        <li><span class="highlight">Development studies</span> historically imposed Western economic models regardless of local contexts</li>
+                    </ul>
+
+                    <h3>Critiques and Alternatives</h3>
+                    
+                    <h4>Postcolonial Critique</h4>
+                    <p>Scholars like Edward Said, Gayatri Spivak, and Frantz Fanon exposed how Eurocentrism served colonial domination and continues through neo-colonial relationships and knowledge production.</p>
+
+                    <h4>Calls for Pluralism</h4>
+                    <p>Advocates demand recognition of multiple modernities, diverse paths to development, and legitimacy of non-Western political systems and knowledge traditions.</p>
+
+                    <h4>Decolonizing Knowledge</h4>
+                    <p>Movements to center indigenous, African, Asian, and Latin American perspectives, theories, and methodologies in academic disciplines.</p>
+
+                    <h3>Importance for Comparative Politics</h3>
+                    <p>Recognizing Eurocentrism is crucial for genuinely comparative analysis that doesn't impose Western categories on non-Western contexts, acknowledges diverse political experiences as legitimate, and develops theories accounting for global diversity rather than universalizing particular experiences.</p>
+                    
+                    <p><strong>Overcoming Eurocentrism requires epistemic humility, recognition of multiple valid perspectives, and commitment to truly global, rather than Western-centric, comparative analysis.</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <button class="print-btn" onclick="window.print()">📄 Print All Answers</button>
+        </div>
+    </div>
+    <div>
+      <p><a href="tier2_3.html"></a>Tier 2 and 3 answers</p>
+    </div>
+
+    <script>
+        function showQuestion(num) {
+            const questions = document.querySelectorAll('.question');
+            const buttons = document.querySelectorAll('.nav-btn');
+            
+            questions.forEach(q => q.classList.remove('active'));
+            buttons.forEach(b => b.classList.remove('active'));
+            
+            document.getElementById('q' + num).classList.add('active');
+            buttons[num - 1].classList.add('active');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const activeBtn = document.querySelector('.nav-btn.active');
+            const currentIndex = Array.from(document.querySelectorAll('.nav-btn')).indexOf(activeBtn);
+            
+            if (e.key === 'ArrowRight' && currentIndex < 7) {
+                showQuestion(currentIndex + 2);
+            } else if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                showQuestion(currentIndex);
+            }
+        });
+
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
