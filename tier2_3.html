@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tier 2 Answers - Political Science</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .search-box {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        #searchInput {
+            width: 100%;
+            max-width: 600px;
+            padding: 15px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            outline: none;
+            transition: box-shadow 0.3s;
+        }
+
+        #searchInput:focus {
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .question-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .question-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .question-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .marks-badge {
+            background: #ffd700;
+            color: #333;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .question-title {
+            font-size: 1.3em;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .answer-content {
+            display: none;
+            margin-top: 15px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .answer-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #667eea;
+            margin: 15px 0 10px 0;
+        }
+
+        .feature-list {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .feature-item {
+            margin: 8px 0;
+            padding-left: 10px;
+            border-left: 3px solid #667eea;
+        }
+
+        .toggle-icon {
+            font-size: 1.5em;
+            color: #667eea;
+            transition: transform 0.3s;
+        }
+
+        .toggle-icon.active {
+            transform: rotate(180deg);
+        }
+
+        .expand-all-btn {
+            background: white;
+            color: #667eea;
+            border: 2px solid white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .expand-all-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .tier-btn {
+            background: white;
+            color: #667eea;
+            border: 2px solid white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 0 5px;
+            transition: all 0.3s;
+        }
+
+        .tier-btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
+        }
+
+        .tier-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .tier-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .tier-2 {
+            background: #c0c0c0;
+            color: white;
+        }
+
+        .tier-3 {
+            background: #cd7f32;
+            color: white;
+        }
+
+        .no-results {
+            text-align: center;
+            color: white;
+            font-size: 1.2em;
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .question-card {
+                padding: 20px;
+            }
+
+            .question-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Political Science Study Guide</h1>
+            <p class="subtitle">Tier 2 & Tier 3 Answers</p>
+        </header>
+
+        <div style="text-align: center; margin-bottom: 20px;">
+            <button class="tier-btn active" data-tier="all">All Questions</button>
+            <button class="tier-btn" data-tier="2">🥈 Tier 2</button>
+            <button class="tier-btn" data-tier="3">🥉 Tier 3</button>
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Search questions...">
+        </div>
+
+        <button class="expand-all-btn" id="expandAllBtn">Expand All Answers</button>
+
+        <div id="questionsContainer"></div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                number: 9,
+                tier: 2,
+                marks: 5,
+                title: "Define: Comparative Politics, Comparative Government, Comparative Method",
+                sections: [
+                    {
+                        title: "Comparative Politics",
+                        content: "Comparative Politics is the systematic and scientific study of political systems, institutions, processes, behaviors, and phenomena across different countries and contexts, using comparative analysis to identify patterns, test theories, and explain political outcomes. It employs rigorous methodologies to understand how and why political systems function differently."
+                    },
+                    {
+                        title: "Comparative Government",
+                        content: "Comparative Government is the traditional, narrower field focusing on formal governmental structures, institutions, and constitutional arrangements of different states. It primarily describes and compares legal-constitutional frameworks, emphasizing institutional architecture rather than broader political processes or informal political behavior."
+                    },
+                    {
+                        title: "Comparative Method",
+                        content: "The Comparative Method is a research methodology that systematically compares cases (countries, regions, institutions) to identify similarities, differences, causal relationships, and patterns. It serves as an alternative to experimental methods in social sciences, allowing researchers to test hypotheses by analyzing variation across comparable units while controlling for confounding variables."
+                    }
+                ]
+            },
+            {
+                number: 15,
+                tier: 3,
+                marks: "5-10",
+                title: "What is the Need for Comparative Study? / Problems with the Comparative Method",
+                sections: [
+                    {
+                        title: "Need for Comparative Study",
+                        features: [
+                            "Scientific Understanding: Comparison allows testing theories and hypotheses about political phenomena by observing patterns across cases, moving beyond single-case description",
+                            "Identifying Patterns and Causality: By analyzing similarities and differences, we can identify causal relationships and understand why political outcomes vary",
+                            "Avoiding Ethnocentrism: Studying diverse systems prevents assuming one's own system is normal or superior, promoting cultural relativism and broader perspective",
+                            "Policy Learning: Examining other countries' experiences with policies and institutions helps identify best practices and avoid pitfalls",
+                            "Classification and Theory Building: Comparison enables categorizing political systems and developing general theories applicable across contexts"
+                        ]
+                    },
+                    {
+                        title: "Problems with the Comparative Method",
+                        features: [
+                            "Too Many Variables, Too Few Cases: Political systems are complex with numerous variables, but researchers have limited cases (countries), making it difficult to isolate causal factors",
+                            "Equivalence Problem: Concepts and institutions may have different meanings in different contexts (e.g., 'democracy' varies culturally), making genuine comparison difficult",
+                            "Selection Bias: Researchers tend to select cases supporting their hypotheses or choose cases that are convenient rather than representative",
+                            "Cultural Context: Political phenomena are embedded in specific cultural, historical, and social contexts that resist generalization",
+                            "Data Availability and Reliability: Information quality varies across countries, particularly in authoritarian regimes or developing countries, limiting robust comparison",
+                            "Temporal Dimension: Comparing countries at different developmental stages or time periods can be problematic as conditions differ fundamentally"
+                        ]
+                    }
+                ]
+            },
+            {
+                number: 16,
+                tier: 3,
+                marks: 10,
+                title: "\"Socialism is Dead\" — Do You Agree?",
+                sections: [
+                    {
+                        title: "Arguments Supporting 'Socialism is Dead'",
+                        features: [
+                            "Collapse of Soviet Bloc: The dissolution of USSR in 1991 and Eastern European transformations seemed to signal socialism's failure and capitalism's triumph, prompting Fukuyama's 'end of history' thesis",
+                            "Economic Failures: Socialist economies struggled with inefficiency, shortages, technological stagnation, and inability to match capitalist productivity and living standards",
+                            "Market Reforms: Even remaining 'socialist' states like China and Vietnam adopted market mechanisms, suggesting pure socialism is unviable economically",
+                            "Ideological Decline: Marxist-Leninist ideology lost appeal globally, with former socialist movements embracing social democracy or liberalism"
+                        ]
+                    },
+                    {
+                        title: "Arguments Against 'Socialism is Dead'",
+                        features: [
+                            "Surviving Socialist States: China, Cuba, North Korea, Vietnam, and Laos maintain communist governance, with China becoming major economic power under socialist label",
+                            "Socialist Ideas Persist: Concepts of social justice, economic equality, public welfare, and critique of capitalism remain influential globally",
+                            "Democratic Socialism: Nordic social democracies successfully blend market economies with extensive welfare states, showing socialist principles can function within democratic frameworks",
+                            "Growing Inequality: Rising inequality under neoliberal capitalism has revived interest in socialist alternatives, particularly among youth in Western countries",
+                            "Anti-Capitalist Movements: Movements challenging capitalism's excesses (Occupy Wall Street, anti-globalization, climate justice) draw on socialist traditions",
+                            "Latin American Pink Tide: Socialist and leftist governments in Bolivia, Venezuela, and elsewhere show continued electoral appeal"
+                        ]
+                    },
+                    {
+                        title: "Balanced Assessment",
+                        content: "Classical state socialism characterized by Soviet-style central planning and single-party dictatorship has indeed largely ended, proven economically inefficient and politically oppressive. However, socialist ideas, critiques, and principles remain relevant and influential in various forms: social democratic welfare states, socialist elements within mixed economies, China's 'socialism with Chinese characteristics,' persistent critiques of capitalism's inequality and exploitation, and renewed interest in alternatives to neoliberalism. Therefore, while a particular historical form of socialism has ended, declaring socialism categorically 'dead' oversimplifies. Socialist thought continues evolving, adapting, and influencing political discourse and policy, making complete obituaries premature. The relevant question may not be whether socialism is dead, but what forms it takes in contemporary contexts and how it addresses 21st-century challenges."
+                    }
+                ]
+            },
+            {
+                number: 17,
+                tier: 3,
+                marks: 10,
+                title: "Examine Differences between Liberal and Socialist Political Systems",
+                sections: [
+                    {
+                        title: "Introduction",
+                        content: "Liberal and socialist political systems represent fundamentally different approaches to organizing political and economic life."
+                    },
+                    {
+                        title: "Key Differences",
+                        features: [
+                            "Economic Organization - Liberal: Private ownership of means of production, market economy, profit motive, and competition. Socialist: Public/collective ownership, central planning, production for need rather than profit",
+                            "Role of State - Liberal: Limited government with primary role protecting rights and maintaining order; minimal economic intervention. Socialist: Extensive state role in economy and society to achieve equality and collective welfare",
+                            "Individual vs. Collective - Liberal: Primacy of individual rights, freedoms, and autonomy; society as collection of individuals. Socialist: Collective welfare and social equality prioritized over individual accumulation; emphasis on community",
+                            "Political Pluralism - Liberal: Multi-party competition, diverse opinions encouraged, regular competitive elections. Socialist: Often single-party system (democratic centralism), viewing class-based parties as representing working masses",
+                            "Equality Conception - Liberal: Equality of opportunity and legal equality; accepts economic inequality as outcome of free choice. Socialist: Substantive equality in economic and social conditions; seeks to eliminate class distinctions",
+                            "Rights and Freedoms - Liberal: Emphasis on civil and political rights (speech, assembly, property). Socialist: Emphasis on social and economic rights (employment, healthcare, education); political rights subject to collective goals",
+                            "Distribution of Wealth - Liberal: Market-determined distribution with limited redistribution; wealth reflects individual merit. Socialist: Planned redistribution based on need and contribution; rejection of exploitation",
+                            "Democratic Practice - Liberal: Representative democracy with periodic elections, separation of powers, judicial independence. Socialist: Often claims to practice 'people's democracy' through party representing masses, but historically authoritarian",
+                            "View of History - Liberal: Progressive improvement through individual freedom and rational reform. Socialist: Historical materialism—class struggle driving history toward communist society",
+                            "Cultural Values - Liberal: Pluralism, tolerance, individual expression, consumer choice. Socialist: Collective consciousness, solidarity, equality, and proletarian culture"
+                        ]
+                    },
+                    {
+                        title: "In Practice",
+                        content: "Pure liberal and socialist systems are rare. Most democracies incorporate elements of both (welfare states, public services within market economies), while self-proclaimed socialist states have adopted market mechanisms. The distinction represents ideal types along a continuum rather than absolute categories."
+                    }
+                ]
+            },
+            {
+                number: 18,
+                tier: 3,
+                marks: 2,
+                title: "What is Meant by: Nation-State, Orientalism, Imperialist Capital, Surplus Value, Global Village",
+                sections: [
+                    {
+                        title: "Nation-State",
+                        content: "A political unit where a defined territory, sovereign government, and population sharing common identity (nation) coincide. It represents the dominant form of political organization since the Treaty of Westphalia (1648), combining territorial sovereignty with cultural-national unity, though perfect congruence between nation and state is rare."
+                    },
+                    {
+                        title: "Orientalism",
+                        content: "Edward Said's concept describing Western (particularly European) stereotypical, patronizing representations of Eastern societies as exotic, backward, irrational, and inferior. It functioned as ideological justification for colonialism, creating discourse that represented the 'Orient' as fundamentally different from and subordinate to the 'Occident,' serving Western domination."
+                    },
+                    {
+                        title: "Imperialist Capital",
+                        content: "Lenin's term describing monopoly capitalism's highest stage, where capital export (rather than commodity export) becomes dominant, monopolies divide world markets among themselves, and finance capital seeks profitable investment opportunities abroad, driving territorial conquest and colonial exploitation as economic imperative."
+                    },
+                    {
+                        title: "Surplus Value",
+                        content: "Marx's central concept in capitalist critique: the difference between value produced by workers' labor and wages they receive. Capitalists appropriate this surplus as profit, constituting exploitation since workers create more value than their compensation, with surplus value being source of capital accumulation and class conflict."
+                    },
+                    {
+                        title: "Global Village",
+                        content: "Marshall McLuhan's metaphor describing how electronic communication technologies (now internet and social media) shrink the world, creating interconnectedness resembling a village where events, information, and cultures are instantly accessible globally, collapsing distance and time while creating new forms of global consciousness and interdependence."
+                    }
+                ]
+            },
+            {
+                number: 10,
+                tier: 2,
+                marks: 2,
+                title: "Mention Two Features of: Comparative Politics, British Constitution, Chinese Constitution, Socialism, Capitalism",
+                sections: [
+                    {
+                        title: "Two Features of Comparative Politics",
+                        features: [
+                            "Uses systematic, scientific methods to analyze political phenomena across multiple countries",
+                            "Studies both formal institutions and informal processes including political culture, behavior, and participation"
+                        ]
+                    },
+                    {
+                        title: "Two Features of British Constitution",
+                        features: [
+                            "Uncodified/unwritten - not contained in a single document but derived from multiple sources",
+                            "Parliamentary sovereignty - Parliament has supreme legislative authority to make or unmake any law"
+                        ]
+                    },
+                    {
+                        title: "Two Features of Chinese Constitution (1982)",
+                        features: [
+                            "Establishes Communist Party leadership as fundamental principle directing all state affairs",
+                            "Combines socialist public ownership with socialist market economy allowing diverse economic forms"
+                        ]
+                    },
+                    {
+                        title: "Two Features of Socialism",
+                        features: [
+                            "Public/collective ownership of means of production rather than private ownership",
+                            "Central economic planning to distribute resources based on social need rather than market forces"
+                        ]
+                    },
+                    {
+                        title: "Two Features of Capitalism",
+                        features: [
+                            "Private ownership of means of production with profit motive driving economic activity",
+                            "Free market economy where supply and demand determine prices and allocation of resources"
+                        ]
+                    }
+                ]
+            },
+            {
+                number: 11,
+                tier: 2,
+                marks: 5,
+                title: "What is Liberal Capitalism / Mercantile Capitalism / Political Economy?",
+                sections: [
+                    {
+                        title: "Liberal Capitalism",
+                        content: "Liberal Capitalism (or laissez-faire capitalism) is an economic system characterized by minimal government intervention, free markets, private property rights, and individual economic freedom. Emerging from Adam Smith's ideas, it emphasizes that unrestricted market competition produces optimal outcomes, with government limited to protecting property rights and enforcing contracts. Associated with 19th-century industrialization and contemporary neoliberalism advocating deregulation and privatization."
+                    },
+                    {
+                        title: "Mercantile Capitalism",
+                        content: "Mercantile Capitalism (or Mercantilism) was the dominant economic system in Europe from 16th-18th centuries, characterized by state intervention to accumulate national wealth through favorable trade balances. Features include government regulation of commerce, colonial expansion for resources and markets, protectionist policies, bullionism (accumulating gold/silver), and viewing economics as zero-sum competition between nations. It preceded industrial capitalism and justified colonial exploitation."
+                    },
+                    {
+                        title: "Political Economy",
+                        content: "Political Economy is the interdisciplinary study of the relationship between political and economic systems, examining how political institutions, processes, and decisions shape economic outcomes, and conversely, how economic structures and interests influence political power. It analyzes distribution of resources, class relations, state-market interactions, and the political dimensions of production, exchange, and consumption. Modern approaches include Marxist, liberal, and institutional political economy."
+                    }
+                ]
+            },
+            {
+                number: 12,
+                tier: 2,
+                marks: 5,
+                title: "Write a Note on: Fundamental Duties in PRC Constitution",
+                sections: [
+                    {
+                        title: "Overview",
+                        content: "The Constitution of the People's Republic of China uniquely emphasizes Fundamental Duties alongside fundamental rights, reflecting socialist ideology that citizens have obligations to the state and society."
+                    },
+                    {
+                        title: "Key Fundamental Duties",
+                        features: [
+                            "Upholding the Constitution and Law: Citizens must abide by the Constitution, laws, and maintain discipline",
+                            "Safeguarding National Unity: Duty to safeguard unity of the country and unity of all ethnic groups",
+                            "Defending the Motherland: Obligation to defend the motherland and resist aggression; military service is an honorable duty",
+                            "Protecting Public Property: Citizens must safeguard state and collectively owned property",
+                            "Labor and Discipline: Duty to work and observe labor discipline",
+                            "Paying Taxes: Obligation to pay taxes in accordance with law",
+                            "Family Planning: Citizens' duty to practice family planning (though this has evolved with policy changes)"
+                        ]
+                    },
+                    {
+                        title: "Significance",
+                        content: "These duties reflect the socialist principle that individual rights are inseparable from responsibilities to the collective, contrasting with Western liberal emphasis on individual rights. They provide constitutional basis for state expectations of citizen compliance and contribution to national development goals."
+                    }
+                ]
+            },
+            {
+                number: 13,
+                tier: 2,
+                marks: 10,
+                title: "Analyze the Main Features of the Chinese Political Economy",
+                sections: [
+                    {
+                        title: "Introduction",
+                        content: "China's political economy represents a unique 'socialism with Chinese characteristics' model, blending communist political control with market-oriented economic reforms."
+                    },
+                    {
+                        title: "Main Features",
+                        features: [
+                            "Socialist Market Economy: Combines public ownership (state-owned enterprises) as the mainstay with diverse ownership forms including private and foreign enterprises",
+                            "State Dominance in Strategic Sectors: The state maintains control over commanding heights through large SOEs in banking, energy, telecommunications, and heavy industry",
+                            "Gradual, Experimental Reform: Unlike Soviet shock therapy, China pursued gradualist reform using 'crossing the river by feeling the stones' approach",
+                            "Export-Oriented Development: Manufacturing for export drove rapid growth, making China 'world's factory' through SEZs",
+                            "Five-Year Plans and Industrial Policy: The state directs economic development through comprehensive planning and targeted industrial policy",
+                            "Party-State Economic Control: The Communist Party maintains ultimate authority over economy through control of SOEs and major appointments",
+                            "Land Ownership System: All land is state or collectively owned; individuals lease usage rights",
+                            "Regional Competition and Decentralization: Economic governance involves considerable decentralization with local governments competing",
+                            "Financial Repression: State-controlled banking system directs credit to priority sectors at subsidized rates",
+                            "Poverty Alleviation and Common Prosperity: Recent emphasis on reducing inequality through 'common prosperity' agenda"
+                        ]
+                    },
+                    {
+                        title: "Results and Conclusion",
+                        content: "This model produced unprecedented economic growth (averaging 9-10% for decades), lifted hundreds of millions from poverty, and made China the world's second-largest economy. However, it faces challenges including debt accumulation, inefficient SOEs, inequality, environmental degradation, and tensions between state control and market efficiency. The Chinese political economy demonstrates that economic development doesn't require Western-style democracy, challenging modernization theory's predictions and offering alternative model for developing countries."
+                    }
+                ]
+            },
+            {
+                number: 14,
+                tier: 2,
+                marks: 10,
+                title: "Analyze the Main Features of a Liberal Democratic Political System",
+                sections: [
+                    {
+                        title: "Introduction",
+                        content: "Liberal democracy combines two distinct traditions—liberalism emphasizing individual rights and limited government, and democracy emphasizing popular sovereignty and majority rule—into a political system dominant in Western countries."
+                    },
+                    {
+                        title: "Main Features",
+                        features: [
+                            "Popular Sovereignty and Elections: Political authority derives from the people who elect representatives through free, fair, and regular elections",
+                            "Protection of Individual Rights and Freedoms: Constitutional guarantees protect fundamental rights including freedom of speech, press, assembly, association, religion, and conscience",
+                            "Rule of Law: All individuals and institutions, including government, are subject to law with legal equality and due process",
+                            "Limited Government: Constitutional restraints limit government power through separation of powers, checks and balances, and federalism",
+                            "Separation of Powers: Executive, legislative, and judicial powers distributed among different institutions to prevent concentration of authority",
+                            "Constitutional Framework: Constitution establishes governmental structure, delineates powers, and protects rights",
+                            "Political Pluralism: Multiple political parties compete for power, representing diverse interests and ideologies",
+                            "Independent Judiciary: Courts operate independently, interpreting laws and protecting constitutional rights",
+                            "Civil Society and Media Freedom: Vibrant civil society and free media provide autonomous sphere for organization and critique",
+                            "Tolerance and Pluralism: Recognition of diversity with commitment to peaceful coexistence and respect for minority rights",
+                            "Accountability and Transparency: Government officials accountable to electorate with transparency in decision-making",
+                            "Civilian Control of Military: Armed forces subordinate to civilian elected authority"
+                        ]
+                    },
+                    {
+                        title: "Challenges and Conclusion",
+                        content: "Liberal democracies face contemporary challenges including declining trust in institutions, political polarization, rise of populism, economic inequality threatening political equality, influence of money in politics, and balancing security with liberty. Despite these challenges, liberal democracy remains influential model, though debates continue about its universality and viability in non-Western contexts."
+                    }
+                ]
+            }
+        ];
+
+        let allExpanded = false;
+        let currentTier = 'all';
+
+        function renderQuestions(filteredQuestions = questions) {
+            const container = document.getElementById('questionsContainer');
+            
+            if (filteredQuestions.length === 0) {
+                container.innerHTML = '<div class="no-results">No questions found matching your search.</div>';
+                return;
+            }
+
+            container.innerHTML = filteredQuestions.map(q => `
+                <div class="question-card" data-question="${q.number}">
+                    <div class="question-header">
+                        <div>
+                            <span class="question-number">Question ${q.number}</span>
+                            <span class="tier-badge tier-${q.tier}">Tier ${q.tier}</span>
+                        </div>
+                        <span class="marks-badge">${q.marks} marks</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div class="question-title">${q.title}</div>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="answer-content">
+                        ${q.sections.map(section => `
+                            <div class="section-title">${section.title}:</div>
+                            ${section.content ? `<p>${section.content}</p>` : ''}
+                            ${section.features ? `
+                                <div class="feature-list">
+                                    ${section.features.map(f => `
+                                        <div class="feature-item">${f}</div>
+                                    `).join('')}
+                                </div>
+                            ` : ''}
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+
+            attachCardListeners();
+        }
+
+        function attachCardListeners() {
+            const cards = document.querySelectorAll('.question-card');
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const answer = this.querySelector('.answer-content');
+                    const icon = this.querySelector('.toggle-icon');
+                    
+                    answer.classList.toggle('active');
+                    icon.classList.toggle('active');
+                });
+            });
+        }
+
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            let filtered = questions;
+            
+            // Apply tier filter
+            if (currentTier !== 'all') {
+                filtered = filtered.filter(q => q.tier === parseInt(currentTier));
+            }
+            
+            // Apply search filter
+            filtered = filtered.filter(q => 
+                q.title.toLowerCase().includes(searchTerm) ||
+                q.number.toString().includes(searchTerm) ||
+                q.sections.some(s => 
+                    s.title.toLowerCase().includes(searchTerm) ||
+                    (s.content && s.content.toLowerCase().includes(searchTerm)) ||
+                    (s.features && s.features.some(f => f.toLowerCase().includes(searchTerm)))
+                )
+            );
+            renderQuestions(filtered);
+        });
+
+        // Tier filter buttons
+        document.querySelectorAll('.tier-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Update active state
+                document.querySelectorAll('.tier-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Get selected tier
+                currentTier = this.dataset.tier;
+                
+                // Filter questions
+                let filtered = questions;
+                if (currentTier !== 'all') {
+                    filtered = questions.filter(q => q.tier === parseInt(currentTier));
+                }
+                
+                // Apply search if there's a search term
+                const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+                if (searchTerm) {
+                    filtered = filtered.filter(q => 
+                        q.title.toLowerCase().includes(searchTerm) ||
+                        q.number.toString().includes(searchTerm) ||
+                        q.sections.some(s => 
+                            s.title.toLowerCase().includes(searchTerm) ||
+                            (s.content && s.content.toLowerCase().includes(searchTerm)) ||
+                            (s.features && s.features.some(f => f.toLowerCase().includes(searchTerm)))
+                        )
+                    );
+                }
+                
+                renderQuestions(filtered);
+            });
+        });
+
+        document.getElementById('expandAllBtn').addEventListener('click', function() {
+            allExpanded = !allExpanded;
+            const answers = document.querySelectorAll('.answer-content');
+            const icons = document.querySelectorAll('.toggle-icon');
+            
+            answers.forEach(answer => {
+                if (allExpanded) {
+                    answer.classList.add('active');
+                } else {
+                    answer.classList.remove('active');
+                }
+            });
+
+            icons.forEach(icon => {
+                if (allExpanded) {
+                    icon.classList.add('active');
+                } else {
+                    icon.classList.remove('active');
+                }
+            });
+
+            this.textContent = allExpanded ? 'Collapse All Answers' : 'Expand All Answers';
+        });
+
+        renderQuestions();
+    </script>
+  <div>
+    <a href="index.html">previous page</a>
+  </div>
+</body>
+</html>
